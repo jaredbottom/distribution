@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Permissions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-2xl mx-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold">Select User</h1>
+            <a href="{{ url_for('overview') }}" 
+               class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                View Overview
+            </a>
+        </div>
+        <div class="bg-white rounded-lg shadow p-6">
+            {% for user in users %}
+                <a href="{{ url_for('show_permissions', user_id=user[0]) }}"
+                   class="block p-4 mb-2 border rounded hover:bg-gray-50">
+                    {{ user[1] }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
